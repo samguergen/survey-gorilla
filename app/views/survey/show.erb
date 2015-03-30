@@ -1,6 +1,10 @@
 <center>
 <h2><%= @the_survey.title %></h2>
+<em> by: <%=@the_survey.creator_id %></em>
 <h3><%= @the_survey.description %></h3>
 
+<ul>
+<% @the_survey.questions.each do |q| %>
+<li> <%= q.
 
 </center>
