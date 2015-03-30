@@ -1,0 +1,10 @@
+<dt>
+  <li><%= comment.content %> --<%= comment.user.name%></li>
+  <dd><p style="margin: 5px;">posted:<%=comment.created_at%></p></dd>
+</dt>
+<% if comment.user_id == session[:user_id] %>
+  <form class="comment_delete" action="/comments/<%=comment.id%>" method='post'>
+    <input type='hidden' name='_method' value='delete' />
+    <input type='submit' value='delete' />
+  </form>
+<%end%>

@@ -1,0 +1,12 @@
+<h2>User: <%= @cur_user.name %></h2>
+<h3>Comments:</h3>
+
+<ul>
+  <% @user_comments.each do |comment| %>
+    <a href="/posts/<%= comment.post_id %>"><h4><%= comment.post.title %></h4></a>
+    <li><%= comment.content %></li>
+      <br>
+  <%end%>
+</ul>
+
+<a href="/users/<%= @cur_user.id%>">back</a>
