@@ -1,0 +1,10 @@
+<center>
+<h1>Take a survey!</h1>
+<h2>Choose a survey from our list:</h2>
+
+<% @all_surveys.each do |s| %>
+<p><a href="/surveys/<%=s.id%>" <%= s.title %> </a>
+  <br><em><%= s.description %></em></p>
+  <% end %>
+
+</center>
