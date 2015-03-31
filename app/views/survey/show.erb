@@ -2,13 +2,15 @@
 <h2><%= @the_survey.title %></h2>
 <em> by: <%=@the_survey.creator.first_name %> <%=@the_survey.creator.last_name %></em>
 <h3><em><%= @the_survey.description %></em></h3>
-
-<ul>
-<% @the_survey.questions.each do |q| %>
-<li> <%= q.content %> </li>
-<% q.questions.each
-<br> <%=
-<% end %>
-</ul>
-
 </center>
+
+<ol>
+<% @the_survey.questions.each do |q| %>
+<p><li> <%= q.content %> </li>
+<% q.choices.each do |c| %>
+<br> <%= c.option %>
+<% end %></p>
+<% end %>
+</ol>
+
+
