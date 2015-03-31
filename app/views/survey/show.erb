@@ -14,6 +14,7 @@
 </ol>
 
 <center>
+<p><a href="/surveys/<%=@the_survey.id%>/edit">Edit my survey</a></p>
 <form action="/surveys/<%=@the_survey.id%>/delete" method="post">
   <input type="hidden" name="_method" value="delete"/>
   <input type="submit" value="Delete my survey"/>

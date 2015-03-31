@@ -12,6 +12,11 @@ get '/surveys/:id' do
   erb :"survey/show"
 end
 
+get '/surveys/:id/edit' do
+  @the_survey = Survey.find_by(:id => params[:id])
+  erb :"survey/edit"
+end
+
 post '/surveys' do
   @new_survey = Survey.new(:title => params[:title], :description => params[:description], :creator_id => session[:user_id])
   if @new_survey.save
@@ -21,7 +26,20 @@ post '/surveys' do
   end
 end
 
-
+put '/surveys/:id' do
+  @survey_to_edit = Survey.find_by(:id => params[:id])
+  if @survey_to_edit.id == session[:user_id]
+    @survey_to_edit.title = params[:title]
+    @survey_to_edit.description = params[:description]
+    if @survey_to_edit.save
+      redirect "/surveys/#{@survey_to_edit.id}"
+    else
+      [500, "Go to hell. It can't be updated. You did something wrong."]
+    end
+  else
+    "Go to hell. You can only edit your own surveys."
+  end
+end
 
 delete '/surveys/:id/delete' do
   @survey_to_delete = Survey.find_by(:id => params[:id])
