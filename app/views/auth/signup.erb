@@ -1,11 +1,10 @@
-<h1>Join us, or don't, whatever</h1>
-<form action="/signup" method="POST">
-  <label>Username:
-    <input type="text" placeholder="user name" name="name">
+<form id='signup_form' action="/signup" method="POST">
+  <label>Enter your email:
+    <input class='input_tile' type="text" name="name">
   </label>
-  <label>Password:
-    <input type="password" placeholder="password" name="password">
+  <label>Create your password:
+    <input class='input_tile' type="password" name="password">
   </label>
   <br><br>
-  <input type="submit" value="Sign Up">
+  <input id='submit' type="submit" value="Sign Up">
 </form>
