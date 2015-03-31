@@ -1,11 +1,16 @@
 <center>
 <h1>Create a survey!</h1>
 
+<% if session[:user_id] %>
 <form action='/surveys' method='post'>
-Your survey title<input type='text' name="title"/><br>
+Your survey name: <input type='text' name="title"/><br>
 Description: <input type='text' name="description"/><br>
 <input type='submit' value='Create!'>
 </form>
 
+<% else %>
+  "Go to hell. You can't create a survey because you're not a member. Signup."
+
+<% end %>
 
 </center>
