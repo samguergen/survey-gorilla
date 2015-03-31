@@ -13,5 +13,13 @@
 <% end %>
 </ol>
 
-<center><a href="/surveys">View all surveys</a></center>
+<center>
+<form action="/surveys/<%=@the_survey.id%>/delete" method="post">
+  <input type="hidden" name="_method" value="delete"/>
+  <input type="submit" value="Delete my survey"/>
+</form>
+
+  <p><a href="/surveys">View all surveys</a></p>
+
+  </center>
 
