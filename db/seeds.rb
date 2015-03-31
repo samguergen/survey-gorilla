@@ -1,5 +1,5 @@
 sam = {:first_name => "Samantha", :last_name => "Guergenenov",
-  :email => "sam@gmail.com", :password => "123123", :password_confirmation => "123123"}
+  :email => "sammy@gmail.com", :password => "123123", :password_confirmation => "123123"}
 tracy = {:first_name => "Tracy", :last_name => "Teague",
   :email => "tracy@gmail.com", :password => "234234", :password_confirmation => "234234"}
 tara = {:first_name => "Tara", :last_name => "Frye",
@@ -75,13 +75,13 @@ c3q1science = {:option => "1" , :question_id => question1_science.id}
 
 c1q2science = {:option => "A group of organs working together as a living entity" , :question_id => question2_science.id}
 c2q2science = {:option => "A human" , :question_id => question2_science.id}
-c3q3science = {:option => "Something that isn't dead" , :question_id => question2_science.id}
+c3q2science = {:option => "Something that isn't dead" , :question_id => question2_science.id}
 
-c1q1stand = {:option => "Absolutely" , :question_id => question1_standid}
+c1q1stand = {:option => "Absolutely" , :question_id => question1_stand.id}
 c2q1stand = {:option => "Maybe" , :question_id => question1_stand.id}
 c3q1stand = {:option => "Never" , :question_id => question1_stand.id}
 
-c1q2stand = {:option => "Absolutely" , :question_id => question2_standid}
+c1q2stand = {:option => "Absolutely" , :question_id => question2_stand.id}
 c2q2stand = {:option => "Maybe" , :question_id => question2_stand.id}
 c3q2stand = {:option => "Never" , :question_id => question2_stand.id}
 
