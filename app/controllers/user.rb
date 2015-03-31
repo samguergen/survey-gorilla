@@ -1,19 +1,13 @@
-get '/users/:id/comments' do
-  @user_comments = Comment.where(user: params[:id])
-  @cur_user = User.find_by(id: params[:id])
-  erb :user_comments
+get '/' do
+  erb :'index'
 end
 
+
 get '/users/:id' do
-  @cur_user = User.find_by(id: params[:id])
+  @user = User.find_by(id: params[:id])
   erb :user_id
 end
 
-get '/users/:id/posts' do
-  @user_posts = Post.where(user: params[:id])
-  @cur_user = User.find_by(id: params[:id])
-  erb :user_posts
-end
 
 get '/signup' do
   erb :'auth/signup'
@@ -24,8 +18,7 @@ get '/login' do
 end
 
 post '/signup' do
-  new_user = User.new(name: params[:name],
-                      password: params[:password])
+  @user = User.new(params)
 
   if new_user.save
     redirect "/login"

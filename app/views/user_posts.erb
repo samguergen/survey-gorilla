@@ -1,9 +1,0 @@
-<h2>User: <%= @cur_user.name %></h2>
-<h3>Posts:</h3>
-
-<ol>
-  <% @user_posts.each do |post| %>
-    <li><a href="/posts/<%= post.id %>"><%= post.title %></a></li>
-      <br>
-  <%end%>
-</ol>
