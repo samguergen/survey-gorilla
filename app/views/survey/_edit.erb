@@ -1,0 +1,6 @@
+    <form id="editform" action='/surveys/<%=@the_survey.id%>' method='post'>
+      <input type="hidden" name="_method" value="put"/>
+      <input type="text" name="title" value="<%=@the_survey.title%>"/>
+      <input type="text" name="description" value="<%=@the_survey.description%>"/>
+      <input type="submit" value="Update"/>
+    </form>

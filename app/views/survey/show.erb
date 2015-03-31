@@ -1,8 +1,10 @@
 <center>
+  <div id="editbasic">
 <h2><%= @the_survey.title %></h2>
 <em> by: <%=@the_survey.creator.first_name %> <%=@the_survey.creator.last_name %></em>
 <h3><em><%= @the_survey.description %></em></h3>
 </center>
+</div>
 
 <ol>
 <% @the_survey.questions.each do |q| %>
@@ -14,7 +16,7 @@
 </ol>
 
 <center>
-<p><a href="/surveys/<%=@the_survey.id%>/edit">Edit my survey</a></p>
+<p><a id='edit-survey' href="/surveys/<%=@the_survey.id%>/edit">Edit my survey</a></p>
 <form action="/surveys/<%=@the_survey.id%>/delete" method="post">
   <input type="hidden" name="_method" value="delete"/>
   <input type="submit" value="Delete my survey"/>

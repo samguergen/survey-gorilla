@@ -14,7 +14,7 @@ end
 
 get '/surveys/:id/edit' do
   @the_survey = Survey.find_by(:id => params[:id])
-  erb :"survey/edit"
+  erb :"survey/_edit", layout: false
 end
 
 post '/surveys' do
@@ -33,6 +33,7 @@ put '/surveys/:id' do
     @survey_to_edit.description = params[:description]
     if @survey_to_edit.save
       redirect "/surveys/#{@survey_to_edit.id}"
+      # erb :"survey/_edit"
     else
       [500, "Go to hell. It can't be updated. You did something wrong."]
     end

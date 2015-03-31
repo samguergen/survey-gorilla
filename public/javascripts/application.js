@@ -1,40 +1,22 @@
 $(document).ready(function() {
-  $('#new-comment-form').click(function(event){
-    event.preventDefault();
-    var $target = $(event.target);
-    $target.hide();
-    var url = $target.attr('href')
-    $.get(url, function(serverResponse, status, jqXHR) {
-      $('#comment-list').append(serverResponse);
+
+  $('#edit-survey').on('click',function(event){
+      //in JS: ajax call to a 'get route'
+      //in RUBY: in the get route return a partial of the "form" you want to render
+      //in JS: in the "done" method,
+      //in JS: remove all the stuff you don't want on the current page
+      //in JS: then appened the form
+
+      event.preventDefault();
+
+      var data = $(this).serialize();
+      $.ajax({
+        type: "GET",
+        url: this.href,
+        data: data
+      }).done(function(response){
+        console.log(response);
+        $('#editbasic').replaceWith(response)
+      });
     });
-
-  });
-
-  $('#comment-list').on('submit', '#comment-content', function(event) {
-    event.preventDefault();
-    var $target = $(event.target);
-    var url = $target.attr('action')
-    var data = $target.serialize();
-
-    $.post(url, data, function(serverResponse, status, jqXHR){
-      $('#comment-list').append(serverResponse);
-    });
-
-    $target.remove();
-    $('h3').remove();
-    $('#new-comment-form').show();
-  });
-
-  $('form.comment_delete').on('submit', function(event) {
-    event.preventDefault();
-    var $target = $(event.target);
-
-    $.ajax({
-      type: 'DELETE',
-      url: $target.attr('action')
-    }).done(function(response) {
-      $target.closest('.doomed').remove()
-    })
-  });
-
 });
