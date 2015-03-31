@@ -25,7 +25,11 @@ end
 
 delete '/surveys/:id/delete' do
   @survey_to_delete = Survey.find_by(:id => params[:id])
-  @survey_to_delete.destroy!
-  redirect "/surveys"
+  if @survey_to_delete.id == session[:user_id]
+    @survey_to_delete.destroy!
+    redirect "/surveys"
+  else
+    [401, "Go to hell. Don't try to delete other people's surveys. Ever again."]
+  end
 end
 
