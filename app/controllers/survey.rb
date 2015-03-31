@@ -20,3 +20,12 @@ post '/surveys' do
     [404, "This survey couldn't be added. Sorry!"]
   end
 end
+
+
+
+delete '/surveys/:id/delete' do
+  @survey_to_delete = Survey.find_by(:id => params[:id])
+  @survey_to_delete.destroy!
+  redirect "/surveys"
+end
+
