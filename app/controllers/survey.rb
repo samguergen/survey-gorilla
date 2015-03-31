@@ -12,3 +12,11 @@ get '/surveys/:id' do
   erb :"survey/show"
 end
 
+post '/surveys' do
+  @new_survey = Survey.new(:title => params[:title], :description => params[:description])
+  if @new_survey.save
+    redirect "/surveys/#{@new_survey.id}"
+  else
+    [404, "This survey couldn't be added. Sorry!"]
+  end
+end
