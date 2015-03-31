@@ -29,5 +29,28 @@ survey_2 = Survey.create!(survey2)
 survey_3 = Survey.create!(survey3)
 survey_4 = Survey.create!(survey4)
 
+question1good = {:content => "Do you sometimes help people with their bags at the supermarket?" ,:survey_id => survey_1.id }
+question2good = {:content => "Do you feel empathy for people?" ,:survey_id => survey_1.id }
+
+question1world = {:content => "How many countries have you been outside of your own?" ,:survey_id => survey_2.id }
+question2world = {:content => "Do you sometimes help people with their bags at the supermarket?" ,:survey_id => survey_2.id }
+
+question1science = {:content => "How many bonds does oxygen have?" ,:survey_id => survey_3.id }
+question2science = {:content => "What is an organism?" ,:survey_id => survey_3.id }
+
+question1stand = {:content => "Would you be willing to risk your life to defend a just cause?" ,:survey_id => survey_4.id }
+question2stand = {:content => "Would you be willing to sacrifice everything you have to defend a just cause?" ,:survey_id => survey_4.id }
+
+question1_good = Question.create!(question1good)
+question2_good = Question.create!(question2good)
+
+question1_world = Question.create!(question1world)
+question2_world = Question.create!(question2world)
+
+question1_science = Question.create!(question1science)
+question2_science = Question.create!(question2science)
+
+question1_stand = Question.create!(question1stand)
+question2_stand = Question.create!(question2stand)
 
 
